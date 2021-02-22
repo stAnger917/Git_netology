@@ -32,7 +32,9 @@ class Student:
                     lecturer.grade[course] = [grade]
             else:
                 print("Grade must be in range 1 - 11")
-
+    
+    def __lt__(self, other):
+        return self.average_student_rating(self.grades) > other.average_student_rating(other.grades)
     
     def __str__(self):
         present_courses = ', '.join(self.courses_in_progress)
@@ -64,7 +66,10 @@ class Lecturer(Mentor):
             average_rating_result = round((pre_result / counter), 2)         
             return average_rating_result
         else:
-            return 0      
+            return 0
+
+    def __lt__(self, other):
+        return self.average_lector_rating(self.grade) > other.average_lector_rating(other.grade)      
 
     def __str__(self):
         return f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {self.average_lector_rating(self.grade)}'
@@ -120,24 +125,12 @@ test_rewiever_1.rate_by_reviewer(test_student_2, 'Go', 10)
 test_rewiever_1.rate_by_reviewer(test_student_1, 'Go', 7)
 test_rewiever_1.rate_by_reviewer(test_student_2, 'Go', 2)
 
-def compare_students(student_1, student_2):
-    if student_1.average_student_rating(student_1.grades) > student_2.average_student_rating(student_2.grades):
-        return f'{student_1.name} have better grades for homework'
-    else:
-        return f'{student_2.name} have better grades for homework'
-
-def compare_lectors(lecturer_1, lecturer_2):
-    if isinstance(lecturer_1, Lecturer) and isinstance(lecturer_2, Lecturer):
-        if lecturer_1.average_lector_rating(lecturer_1.grade) > lecturer_2.average_lector_rating(lecturer_2.grade):
-            return f'{lecturer_1.name} have better grades for lections'
-        else:
-            return f'{lecturer_2.name} have better grades for lections'
-    else:
-        return 'Error! One of the comparing items is invalid'
-
 print(test_lector_1)
 print(test_student_1)
 print(test_rewiever_1)
+
+print(f'Is lecturer {test_lector_1.name} has greater average grade rating than {test_lector_2.name}:', test_lector_1 > test_lector_2)
+print(f'Is student {test_student_1.name} has greater average grade rating than {test_student_2.name}:', test_student_1 < test_student_2)
 
 def average_homework_grades_by_course(student_lits, course_name):
     grades_list = []
