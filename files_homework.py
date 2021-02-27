@@ -1,5 +1,3 @@
-import pprint
-
 def get_cook_book():
     with open('recipes.txt', 'r', encoding="utf-8") as f:
         tmp = f.read()
