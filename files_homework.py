@@ -21,4 +21,3 @@ def get_cook_book():
             cook_book[dish_name] = dish_recipe_tmp
 
     return cook_book
-
