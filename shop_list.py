@@ -3,6 +3,7 @@ import pprint
 
 dishes = get_cook_book()
 
+# This func will get list of dishes from da cook_book
 
 def get_dish_list(dish_cook_book):
     dish_list = list(dish_cook_book.keys())
@@ -25,7 +26,6 @@ def get_shop_list_by_dishes(dish, persons):
             else:
                 existed_ingr = result.get(ingr)
                 tmp = existed_ingr.get('quantity') + quantity
-                # to_update = {"measure": measure, "quantity": tmp}
                 result[ingr] = {"measure": measure, "quantity": tmp}
     return result
 
