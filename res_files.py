@@ -1,7 +1,3 @@
-with open("1.txt") as txt:
-    tmp = txt.readlines()
-
-
 def txt_doc_resulter(a, b):
     with open(a) as txt_file:
         tmp_lst = txt_file.readlines()
