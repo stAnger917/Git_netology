@@ -8,9 +8,7 @@ How to use
 
 Greetings! First you should to do - paste your yandex token from da https://yandex.ru/dev/disk/poligon/
 into variable yandex_token. VK_token - is common, just use it, no need to change.
-Then - just run the function vk_profile_photo_backup()
 
-I split the execution flow of the application on states for convenience.
 For logging I use logging module into the file logs.txt. Before running program - be sure that file exists.
 """
 
